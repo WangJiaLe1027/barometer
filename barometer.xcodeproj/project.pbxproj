@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD2D42421C9BE552003CE1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42411C9BE552003CE1EC /* main.m */; };
+		FD2D42451C9BE552003CE1EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42441C9BE552003CE1EC /* AppDelegate.m */; };
+		FD2D42481C9BE552003CE1EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42471C9BE552003CE1EC /* ViewController.m */; };
+		FD2D424B1C9BE552003CE1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D42491C9BE552003CE1EC /* Main.storyboard */; };
+		FD2D424E1C9BE552003CE1EC /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */; };
+		FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2D424F1C9BE552003CE1EC /* Assets.xcassets */; };
+		FD2D42531C9BE552003CE1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FD2D423D1C9BE552003CE1EC /* barometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD2D42411C9BE552003CE1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD2D42431C9BE552003CE1EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FD2D42441C9BE552003CE1EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FD2D42461C9BE552003CE1EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FD2D42471C9BE552003CE1EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FD2D424A1C9BE552003CE1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = barometer.xcdatamodel; sourceTree = "<group>"; };
+		FD2D424F1C9BE552003CE1EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD2D42521C9BE552003CE1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD2D42541C9BE552003CE1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD2D423A1C9BE552003CE1EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD2D42341C9BE552003CE1EC = {
+			isa = PBXGroup;
+			children = (
+				FD2D423F1C9BE552003CE1EC /* barometer */,
+				FD2D423E1C9BE552003CE1EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD2D423E1C9BE552003CE1EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD2D423D1C9BE552003CE1EC /* barometer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD2D423F1C9BE552003CE1EC /* barometer */ = {
+			isa = PBXGroup;
+			children = (
+				FD2D42431C9BE552003CE1EC /* AppDelegate.h */,
+				FD2D42441C9BE552003CE1EC /* AppDelegate.m */,
+				FD2D42461C9BE552003CE1EC /* ViewController.h */,
+				FD2D42471C9BE552003CE1EC /* ViewController.m */,
+				FD2D42491C9BE552003CE1EC /* Main.storyboard */,
+				FD2D424F1C9BE552003CE1EC /* Assets.xcassets */,
+				FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */,
+				FD2D42541C9BE552003CE1EC /* Info.plist */,
+				FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */,
+				FD2D42401C9BE552003CE1EC /* Supporting Files */,
+			);
+			path = barometer;
+			sourceTree = "<group>";
+		};
+		FD2D42401C9BE552003CE1EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD2D42411C9BE552003CE1EC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD2D423C1C9BE552003CE1EC /* barometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD2D42571C9BE552003CE1EC /* Build configuration list for PBXNativeTarget "barometer" */;
+			buildPhases = (
+				FD2D42391C9BE552003CE1EC /* Sources */,
+				FD2D423A1C9BE552003CE1EC /* Frameworks */,
+				FD2D423B1C9BE552003CE1EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = barometer;
+			productName = barometer;
+			productReference = FD2D423D1C9BE552003CE1EC /* barometer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD2D42351C9BE552003CE1EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = wangjiale;
+				TargetAttributes = {
+					FD2D423C1C9BE552003CE1EC = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = FD2D42381C9BE552003CE1EC /* Build configuration list for PBXProject "barometer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD2D42341C9BE552003CE1EC;
+			productRefGroup = FD2D423E1C9BE552003CE1EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD2D423C1C9BE552003CE1EC /* barometer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD2D423B1C9BE552003CE1EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2D42531C9BE552003CE1EC /* LaunchScreen.storyboard in Resources */,
+				FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */,
+				FD2D424B1C9BE552003CE1EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD2D42391C9BE552003CE1EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2D42481C9BE552003CE1EC /* ViewController.m in Sources */,
+				FD2D42451C9BE552003CE1EC /* AppDelegate.m in Sources */,
+				FD2D42421C9BE552003CE1EC /* main.m in Sources */,
+				FD2D424E1C9BE552003CE1EC /* barometer.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FD2D42491C9BE552003CE1EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD2D424A1C9BE552003CE1EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD2D42521C9BE552003CE1EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD2D42551C9BE552003CE1EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD2D42561C9BE552003CE1EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD2D42581C9BE552003CE1EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = barometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.wangjiale1027.barometer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FD2D42591C9BE552003CE1EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = barometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.wangjiale1027.barometer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD2D42381C9BE552003CE1EC /* Build configuration list for PBXProject "barometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD2D42551C9BE552003CE1EC /* Debug */,
+				FD2D42561C9BE552003CE1EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD2D42571C9BE552003CE1EC /* Build configuration list for PBXNativeTarget "barometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD2D42581C9BE552003CE1EC /* Debug */,
+				FD2D42591C9BE552003CE1EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */,
+			);
+			currentVersion = FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */;
+			path = barometer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FD2D42351C9BE552003CE1EC /* Project object */;
+}
