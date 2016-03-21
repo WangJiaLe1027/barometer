@@ -14,6 +14,8 @@
 		FD2D424E1C9BE552003CE1EC /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */; };
 		FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2D424F1C9BE552003CE1EC /* Assets.xcassets */; };
 		FD2D42531C9BE552003CE1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */; };
+		FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */; };
+		FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		FD2D424F1C9BE552003CE1EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD2D42521C9BE552003CE1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD2D42541C9BE552003CE1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */,
+				FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,8 @@
 		FD2D42341C9BE552003CE1EC = {
 			isa = PBXGroup;
 			children = (
+				FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */,
+				FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */,
 				FD2D423F1C9BE552003CE1EC /* barometer */,
 				FD2D423E1C9BE552003CE1EC /* Products */,
 			);
@@ -266,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = barometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.wangjiale1027.barometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = barometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.wangjiale1027.barometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +312,7 @@
 				FD2D42591C9BE552003CE1EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
