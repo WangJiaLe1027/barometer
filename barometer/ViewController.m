@@ -10,7 +10,6 @@
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
 
-
 @interface ViewController ()
 <
 CLLocationManagerDelegate
@@ -27,18 +26,19 @@ CLLocationManagerDelegate
     
     UILabel *labelForA;
     UILabel *labelForP;
+    UILabel *labelForRealP;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
-    NSString *httpArg = @"city=beijing";
-    [self request: httpUrl withHttpArg: httpArg];
     
     labelForA = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 100)];
     [self.view addSubview:labelForA];
     labelForP = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 200)];
     [self.view addSubview:labelForP];
+    labelForRealP = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 300)];
+    [self.view addSubview:labelForRealP];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.desiredAccuracy=kCLLocationAccuracyBest;
@@ -55,6 +55,8 @@ CLLocationManagerDelegate
         labelForA.text = [NSString stringWithFormat:@"%@",altitudeData.relativeAltitude];
         labelForP.text = [NSString stringWithFormat:@"%@",altitudeData.pressure];
     }];
+    
+    
 }
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -68,6 +70,50 @@ CLLocationManagerDelegate
     NSLog(@"speed%@",[NSString stringWithFormat:@"%f",currLocation.speed]);
     NSLog(@"floor%@",[NSString stringWithFormat:@"%@",currLocation.floor]);
     NSLog(@"description%@",[NSString stringWithFormat:@"%@",currLocation.description]);
+    CLLocation *c = [[CLLocation alloc] initWithLatitude:currLocation.coordinate.latitude longitude:currLocation.coordinate.longitude];
+    
+    NSMutableArray
+    *userDefaultLanguages = [[NSUserDefaults standardUserDefaults]
+                             objectForKey:@"AppleLanguages"];
+    
+    
+    // 强制 成 简体中文
+    [[NSUserDefaults
+      standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",
+                                       nil,nil] forKey:@"AppleLanguages"];
+    CLGeocoder *revGeo = [[CLGeocoder alloc] init];
+    [revGeo reverseGeocodeLocation:c
+                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                     if (!error && [placemarks count] > 0)
+                     {
+                         NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
+                         NSLog(@"street address: %@",[dict objectForKey:@"city"]);
+                         
+                         NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
+                         NSString *httpArg = [NSString stringWithFormat:@"city=%@",[dict objectForKey:@"City"]];
+                         if ([httpArg length]) {
+                             NSMutableString *ms = [[NSMutableString alloc] initWithString:httpArg];
+                             if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO)) {
+                                 NSLog(@"pinyin: %@", ms);
+                             }
+                             if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO)) {
+                                 NSLog(@"pinyin: %@", ms);
+                                 httpArg = ms;
+                             }  
+                         }
+                         httpArg = [httpArg stringByReplacingOccurrencesOfString:@" " withString:@""];
+                         httpArg = [httpArg substringToIndex:httpArg.length-3];
+                         
+                         [self request: httpUrl withHttpArg: httpArg];
+                         [[NSUserDefaults
+                           standardUserDefaults] setObject:userDefaultLanguages
+                          forKey:@"AppleLanguages"];
+                     }
+                     
+                     else  
+                     {  
+                         NSLog(@"ERROR: %@", error); }  
+                 }];
     
 }
 
@@ -97,12 +143,12 @@ CLLocationManagerDelegate
                                    NSArray *vl = [dic allValues];
                                    NSDictionary *dic2 = vl[0][0];
                                    NSDictionary *dic3 = [dic2 objectForKey:@"now"];
+                                   labelForRealP.text = [NSString stringWithFormat:@"%@",[dic3 objectForKey:@"pres"]];
                                    NSLog(@"stauts:%@",[dic2 objectForKey:@"status"]);
                                    NSLog(@"123");
                                }
                            }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -112,7 +158,7 @@ CLLocationManagerDelegate
 {
     UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
     [promptAlert dismissWithClickedButtonIndex:0 animated:NO];
-    promptAlert =NULL;
+    promptAlert = NULL;
 }
 
 
