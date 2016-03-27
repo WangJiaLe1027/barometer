@@ -18,9 +18,6 @@ CLLocationManagerDelegate
 
 @implementation ViewController {
     
-    __weak IBOutlet UIButton *starBtn;
-    __weak IBOutlet UIButton *endBtn;
-    
     CLLocationManager *locationManager;
     CMAltimeter *myCMA;
     
@@ -49,7 +46,7 @@ CLLocationManagerDelegate
     
     myCMA = [[CMAltimeter alloc] init];
     if (![CMAltimeter isRelativeAltitudeAvailable]) {
-        [self showAlert:@"iPhone6以前设备，硬件不支持气压计"];
+        [self showAlert:@"前设备，硬件不支持气压计"];
     }
     [myCMA startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
         labelForA.text = [NSString stringWithFormat:@"%@",altitudeData.relativeAltitude];

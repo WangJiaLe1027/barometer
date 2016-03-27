@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,43 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMv-PN-fD3">
-                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUL-md-fHM" userLabel="End Btn">
-                                        <rect key="frame" x="300" y="0.0" width="300" height="30"/>
-                                        <state key="normal" title="end"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A76-80-UMk">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                        <state key="normal" title="start"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="CUL-md-fHM" secondAttribute="bottom" id="8qI-U0-3zf"/>
-                                    <constraint firstItem="A76-80-UMk" firstAttribute="top" secondItem="CMv-PN-fD3" secondAttribute="top" id="K2g-Ue-69s"/>
-                                    <constraint firstAttribute="trailing" secondItem="CUL-md-fHM" secondAttribute="trailing" id="ZFa-7p-GgD"/>
-                                    <constraint firstAttribute="bottom" secondItem="A76-80-UMk" secondAttribute="bottom" id="dBo-60-8xY"/>
-                                    <constraint firstItem="A76-80-UMk" firstAttribute="width" secondItem="CMv-PN-fD3" secondAttribute="width" multiplier="0.5" id="gMB-Fr-KWl"/>
-                                    <constraint firstItem="A76-80-UMk" firstAttribute="leading" secondItem="CMv-PN-fD3" secondAttribute="leading" id="tMC-Ye-e4J"/>
-                                    <constraint firstItem="CUL-md-fHM" firstAttribute="top" secondItem="CMv-PN-fD3" secondAttribute="top" id="ycr-iK-6vN"/>
-                                    <constraint firstItem="CUL-md-fHM" firstAttribute="leading" secondItem="A76-80-UMk" secondAttribute="trailing" id="zjx-Uc-emJ"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CMv-PN-fD3" secondAttribute="trailing" id="3gk-ZP-Ll4"/>
-                            <constraint firstAttribute="bottom" secondItem="CMv-PN-fD3" secondAttribute="bottom" id="Tda-rV-8Sz"/>
-                            <constraint firstItem="CMv-PN-fD3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XGX-kD-rkj"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="endBtn" destination="CUL-md-fHM" id="IPb-IP-qd7"/>
-                        <outlet property="starBtn" destination="A76-80-UMk" id="oIv-wk-MB9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
