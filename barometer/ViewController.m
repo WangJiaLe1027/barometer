@@ -21,8 +21,9 @@ CLLocationManagerDelegate
     CLLocationManager *locationManager;
     CMAltimeter *myCMA;
     
-    UILabel *labelForA;
-    UILabel *labelForP;
+    
+    UILabel *labelForRelativeAltitude;
+    UILabel *labelForPressure;
     UILabel *labelForRealP;
     
 }
@@ -30,10 +31,23 @@ CLLocationManagerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    labelForA = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 100)];
-    [self.view addSubview:labelForA];
-    labelForP = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 200)];
-    [self.view addSubview:labelForP];
+    UILabel *titleLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 20)];
+    titleLabel1.text = @"当前气压";
+    titleLabel1.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:titleLabel1];
+    
+    labelForRelativeAltitude = [[UILabel alloc] initWithFrame:CGRectMake(0, 220, [UIScreen mainScreen].bounds.size.width, 200)];
+    labelForRelativeAltitude.textAlignment = NSTextAlignmentCenter;
+    labelForRelativeAltitude.font = [UIFont systemFontOfSize:50];
+    labelForRelativeAltitude.text = @"测量中……";
+    [self.view addSubview:labelForRelativeAltitude];
+    
+    labelForPressure = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 200)];
+    labelForPressure.textAlignment = NSTextAlignmentCenter;
+    labelForPressure.font = [UIFont systemFontOfSize:50];
+    labelForPressure.text = @"测量中……";
+    [self.view addSubview:labelForPressure];
+    
     labelForRealP = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 300)];
     [self.view addSubview:labelForRealP];
     
@@ -46,11 +60,11 @@ CLLocationManagerDelegate
     
     myCMA = [[CMAltimeter alloc] init];
     if (![CMAltimeter isRelativeAltitudeAvailable]) {
-        [self showAlert:@"前设备，硬件不支持气压计"];
+        [self showAlert:@"硬件不支持气压计"];
     }
     [myCMA startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
-        labelForA.text = [NSString stringWithFormat:@"%@",altitudeData.relativeAltitude];
-        labelForP.text = [NSString stringWithFormat:@"%@",altitudeData.pressure];
+        labelForRelativeAltitude.text = [NSString stringWithFormat:@"%.3fm",altitudeData.relativeAltitude.floatValue];
+        labelForPressure.text = [NSString stringWithFormat:@"%.2fkPa",altitudeData.pressure.floatValue];
     }];
     
     
@@ -67,51 +81,6 @@ CLLocationManagerDelegate
     NSLog(@"speed%@",[NSString stringWithFormat:@"%f",currLocation.speed]);
     NSLog(@"floor%@",[NSString stringWithFormat:@"%@",currLocation.floor]);
     NSLog(@"description%@",[NSString stringWithFormat:@"%@",currLocation.description]);
-    CLLocation *c = [[CLLocation alloc] initWithLatitude:currLocation.coordinate.latitude longitude:currLocation.coordinate.longitude];
-    
-    NSMutableArray
-    *userDefaultLanguages = [[NSUserDefaults standardUserDefaults]
-                             objectForKey:@"AppleLanguages"];
-    
-    
-    // 强制 成 简体中文
-    [[NSUserDefaults
-      standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",
-                                       nil,nil] forKey:@"AppleLanguages"];
-    CLGeocoder *revGeo = [[CLGeocoder alloc] init];
-    [revGeo reverseGeocodeLocation:c
-                 completionHandler:^(NSArray *placemarks, NSError *error) {
-                     if (!error && [placemarks count] > 0)
-                     {
-                         NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
-                         NSLog(@"street address: %@",[dict objectForKey:@"city"]);
-                         
-                         NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
-                         NSString *httpArg = [NSString stringWithFormat:@"city=%@",[dict objectForKey:@"City"]];
-                         if ([httpArg length]) {
-                             NSMutableString *ms = [[NSMutableString alloc] initWithString:httpArg];
-                             if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO)) {
-                                 NSLog(@"pinyin: %@", ms);
-                             }
-                             if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO)) {
-                                 NSLog(@"pinyin: %@", ms);
-                                 httpArg = ms;
-                             }  
-                         }
-                         httpArg = [httpArg stringByReplacingOccurrencesOfString:@" " withString:@""];
-                         httpArg = [httpArg substringToIndex:httpArg.length-3];
-                         
-                         [self request: httpUrl withHttpArg: httpArg];
-                         [[NSUserDefaults
-                           standardUserDefaults] setObject:userDefaultLanguages
-                          forKey:@"AppleLanguages"];
-                     }
-                     
-                     else  
-                     {  
-                         NSLog(@"ERROR: %@", error); }  
-                 }];
-    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -124,28 +93,6 @@ CLLocationManagerDelegate
 }
 
 
--(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
-    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
-    NSURL *url = [NSURL URLWithString: urlStr];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
-    [request setHTTPMethod: @"GET"];
-    [request addValue: @"" forHTTPHeaderField: @"apikey"];
-    [NSURLConnection sendAsynchronousRequest: request
-                                       queue: [NSOperationQueue mainQueue]
-                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
-                               if (error) {
-                                   NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
-                               } else {
-                                   NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                   NSArray *vl = [dic allValues];
-                                   NSDictionary *dic2 = vl[0][0];
-                                   NSDictionary *dic3 = [dic2 objectForKey:@"now"];
-                                   labelForRealP.text = [NSString stringWithFormat:@"%@",[dic3 objectForKey:@"pres"]];
-                                   NSLog(@"stauts:%@",[dic2 objectForKey:@"status"]);
-                                   NSLog(@"123");
-                               }
-                           }];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
