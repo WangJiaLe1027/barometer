@@ -6,7 +6,9 @@
 //  Copyright © 2016年 wangjiale. All rights reserved.
 //
 
+#import "Header.h"
 #import "AppDelegate.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MobClick startWithAppkey:umengAppkey reportPolicy:BATCH   channelId:@"Web"];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

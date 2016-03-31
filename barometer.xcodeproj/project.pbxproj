@@ -36,6 +36,7 @@
 		FD2D42541C9BE552003CE1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FD6A104F1CACBFAD006D9703 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +97,7 @@
 				FD2D42441C9BE552003CE1EC /* AppDelegate.m */,
 				FD2D42461C9BE552003CE1EC /* ViewController.h */,
 				FD2D42471C9BE552003CE1EC /* ViewController.m */,
+				FD6A104F1CACBFAD006D9703 /* Header.h */,
 				FD2D42491C9BE552003CE1EC /* Main.storyboard */,
 				FD2D424F1C9BE552003CE1EC /* Assets.xcassets */,
 				FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */,

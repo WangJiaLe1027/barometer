@@ -5,7 +5,7 @@
 //  Created by wangjiale on 16/3/18.
 //  Copyright © 2016年 wangjiale. All rights reserved.
 //
-
+#import "Header.h"
 #import "ViewController.h"
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
@@ -129,7 +129,7 @@ CLLocationManagerDelegate
     NSURL *url = [NSURL URLWithString: urlStr];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
     [request setHTTPMethod: @"GET"];
-    [request addValue: @"" forHTTPHeaderField: @"apikey"];
+    [request addValue: baiduApiKey forHTTPHeaderField: @"apikey"];
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: [NSOperationQueue mainQueue]
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
