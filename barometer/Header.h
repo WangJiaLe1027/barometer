@@ -9,6 +9,7 @@
 #ifndef Header_h
 #define Header_h
 
-
+#define umengAppkey @""
+#define baiduApiKey @""
 
 #endif /* Header_h */
