@@ -5,10 +5,11 @@
 //  Created by wangjiale on 16/3/18.
 //  Copyright © 2016年 wangjiale. All rights reserved.
 //
-#import "Header.h"
-#import "ViewController.h"
+
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Header.h"
+#import "ViewController.h"
 
 @interface ViewController ()
 <
@@ -24,7 +25,6 @@ CLLocationManagerDelegate
     UILabel *labelForA;
     UILabel *labelForP;
     UILabel *labelForRealP;
-    
 }
 
 - (void)viewDidLoad {
@@ -46,7 +46,7 @@ CLLocationManagerDelegate
     
     myCMA = [[CMAltimeter alloc] init];
     if (![CMAltimeter isRelativeAltitudeAvailable]) {
-        [self showAlert:@"前设备，硬件不支持气压计"];
+        [self showAlert:@"当前设备，硬件不支持气压计"];
     }
     [myCMA startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
         labelForA.text = [NSString stringWithFormat:@"%@",altitudeData.relativeAltitude];
