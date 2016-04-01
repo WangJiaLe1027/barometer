@@ -13,9 +13,10 @@
 #import "YYModel.h"
 #import "WeatherModel.h"
 
-
-
-@interface NetWork ()<CLLocationManagerDelegate>
+@interface NetWork ()
+<
+CLLocationManagerDelegate
+>
 @end
 
 @implementation NetWork{
@@ -108,7 +109,7 @@
                                    NSLog(@"%@",model.suggestion.flu.txt);
 
                                    
-                                   if ([[dic2 objectForKey:@"status"] isEqualToString:@"ok"]
+                                   if (![[dic2 objectForKey:@"status"] isEqualToString:@"ok"]
                                        ) {
                                        [SVProgressHUD showErrorWithStatus:[dic2 objectForKey:@"status"]];
                                    }
