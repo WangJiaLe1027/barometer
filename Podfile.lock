@@ -1,16 +1,19 @@
 PODS:
-  - LGSideMenuController (1.0.10)
-  - SVProgressHUD (1.1.3)
+  - IGLDropDownMenu (1.5.0)
+  - SVProgressHUD (2.0.2)
   - UMengAnalytics (3.6.6)
+  - YYModel (1.0.2)
 
 DEPENDENCIES:
-  - LGSideMenuController
-  - SVProgressHUD
-  - UMengAnalytics
+  - IGLDropDownMenu (~> 1.5)
+  - SVProgressHUD (~> 2.0)
+  - UMengAnalytics (~> 3.6)
+  - YYModel (~> 1.0)
 
 SPEC CHECKSUMS:
-  LGSideMenuController: 8682bdbd0008c1acfbce95eaf96cc3657bca5f95
-  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  IGLDropDownMenu: 1ce06c17b4846f784e2b610f90bd741ab2037f2c
+  SVProgressHUD: e4020e23badbd7cc61bc4a80d3c1da57f166a978
   UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
+  YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
 
 COCOAPODS: 0.39.0

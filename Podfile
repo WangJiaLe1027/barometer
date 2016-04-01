@@ -1,3 +1,5 @@
 platform :ios, '8.0'
-pod 'UMengAnalytics'
-pod 'SVProgressHUD'
+pod 'UMengAnalytics', '~> 3.6'
+pod 'SVProgressHUD', '~> 2.0'
+pod 'IGLDropDownMenu', '~> 1.5'
+pod 'YYModel', '~> 1.0'

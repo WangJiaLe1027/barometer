@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A7966BCB80B4FA76F0F8DAA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0EB19C84CF3032273C10A7 /* libPods.a */; };
-		FD2D42421C9BE552003CE1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42411C9BE552003CE1EC /* main.m */; };
+		FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BEF51CAE293A00B00256 /* NetWork.m */; };
+		FD27BF091CAE477F00B00256 /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */; };
+		FD27BF0E1CAE479500B00256 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD27BF0A1CAE479500B00256 /* Info.plist */; };
+		FD27BF0F1CAE479500B00256 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27BF0B1CAE479500B00256 /* LaunchScreen.storyboard */; };
+		FD27BF101CAE479500B00256 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF0C1CAE479500B00256 /* main.m */; };
+		FD27BF111CAE479500B00256 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27BF0D1CAE479500B00256 /* Main.storyboard */; };
+		FD27BF151CAE480900B00256 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF141CAE480900B00256 /* ViewController.m */; };
+		FD27BF181CAE671F00B00256 /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF171CAE671F00B00256 /* WeatherModel.m */; };
 		FD2D42451C9BE552003CE1EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42441C9BE552003CE1EC /* AppDelegate.m */; };
-		FD2D42481C9BE552003CE1EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D42471C9BE552003CE1EC /* ViewController.m */; };
-		FD2D424B1C9BE552003CE1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D42491C9BE552003CE1EC /* Main.storyboard */; };
-		FD2D424E1C9BE552003CE1EC /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */; };
 		FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2D424F1C9BE552003CE1EC /* Assets.xcassets */; };
-		FD2D42531C9BE552003CE1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */; };
 		FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */; };
 		FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
@@ -23,17 +26,21 @@
 		54366425E82997337EE1B1C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D84617D72A1C887918162C4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0EB19C84CF3032273C10A7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD27BEF41CAE293A00B00256 /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		FD27BEF51CAE293A00B00256 /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
+		FD27BF081CAE477F00B00256 /* barometer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = barometer.xcdatamodel; sourceTree = "<group>"; };
+		FD27BF0A1CAE479500B00256 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD27BF0B1CAE479500B00256 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD27BF0C1CAE479500B00256 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD27BF0D1CAE479500B00256 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FD27BF131CAE480900B00256 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FD27BF141CAE480900B00256 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FD27BF161CAE671E00B00256 /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
+		FD27BF171CAE671F00B00256 /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
 		FD2D423D1C9BE552003CE1EC /* barometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD2D42411C9BE552003CE1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD2D42431C9BE552003CE1EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD2D42441C9BE552003CE1EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FD2D42461C9BE552003CE1EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FD2D42471C9BE552003CE1EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FD2D424A1C9BE552003CE1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = barometer.xcdatamodel; sourceTree = "<group>"; };
 		FD2D424F1C9BE552003CE1EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FD2D42521C9BE552003CE1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD2D42541C9BE552003CE1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FD6A104F1CACBFAD006D9703 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -57,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				FB0EB19C84CF3032273C10A7 /* libPods.a */,
+				FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */,
+				FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -70,11 +79,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD27BEF31CAE293A00B00256 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				FD27BEF41CAE293A00B00256 /* NetWork.h */,
+				FD27BEF51CAE293A00B00256 /* NetWork.m */,
+				FD27BF161CAE671E00B00256 /* WeatherModel.h */,
+				FD27BF171CAE671F00B00256 /* WeatherModel.m */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		FD27BF121CAE480900B00256 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD27BF131CAE480900B00256 /* ViewController.h */,
+				FD27BF141CAE480900B00256 /* ViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		FD2D42341C9BE552003CE1EC = {
 			isa = PBXGroup;
 			children = (
-				FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */,
-				FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */,
 				FD2D423F1C9BE552003CE1EC /* barometer */,
 				FD2D423E1C9BE552003CE1EC /* Products */,
 				A01663ECDD92FCBCCBC8DABE /* Pods */,
@@ -95,25 +122,17 @@
 			children = (
 				FD2D42431C9BE552003CE1EC /* AppDelegate.h */,
 				FD2D42441C9BE552003CE1EC /* AppDelegate.m */,
-				FD2D42461C9BE552003CE1EC /* ViewController.h */,
-				FD2D42471C9BE552003CE1EC /* ViewController.m */,
+				FD27BF0D1CAE479500B00256 /* Main.storyboard */,
+				FD27BF0B1CAE479500B00256 /* LaunchScreen.storyboard */,
+				FD27BF121CAE480900B00256 /* controller */,
+				FD27BEF31CAE293A00B00256 /* Date */,
 				FD6A104F1CACBFAD006D9703 /* Header.h */,
-				FD2D42491C9BE552003CE1EC /* Main.storyboard */,
+				FD27BF0A1CAE479500B00256 /* Info.plist */,
+				FD27BF0C1CAE479500B00256 /* main.m */,
+				FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */,
 				FD2D424F1C9BE552003CE1EC /* Assets.xcassets */,
-				FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */,
-				FD2D42541C9BE552003CE1EC /* Info.plist */,
-				FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */,
-				FD2D42401C9BE552003CE1EC /* Supporting Files */,
 			);
 			path = barometer;
-			sourceTree = "<group>";
-		};
-		FD2D42401C9BE552003CE1EC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FD2D42411C9BE552003CE1EC /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,9 +195,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2D42531C9BE552003CE1EC /* LaunchScreen.storyboard in Resources */,
+				FD27BF0F1CAE479500B00256 /* LaunchScreen.storyboard in Resources */,
+				FD27BF0E1CAE479500B00256 /* Info.plist in Resources */,
 				FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */,
-				FD2D424B1C9BE552003CE1EC /* Main.storyboard in Resources */,
+				FD27BF111CAE479500B00256 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,33 +257,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2D42481C9BE552003CE1EC /* ViewController.m in Sources */,
+				FD27BF181CAE671F00B00256 /* WeatherModel.m in Sources */,
+				FD27BF101CAE479500B00256 /* main.m in Sources */,
+				FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */,
 				FD2D42451C9BE552003CE1EC /* AppDelegate.m in Sources */,
-				FD2D42421C9BE552003CE1EC /* main.m in Sources */,
-				FD2D424E1C9BE552003CE1EC /* barometer.xcdatamodeld in Sources */,
+				FD27BF091CAE477F00B00256 /* barometer.xcdatamodeld in Sources */,
+				FD27BF151CAE480900B00256 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FD2D42491C9BE552003CE1EC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD2D424A1C9BE552003CE1EC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FD2D42511C9BE552003CE1EC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD2D42521C9BE552003CE1EC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FD2D42551C9BE552003CE1EC /* Debug */ = {
@@ -396,12 +399,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FD2D424C1C9BE552003CE1EC /* barometer.xcdatamodeld */ = {
+		FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */,
+				FD27BF081CAE477F00B00256 /* barometer.xcdatamodel */,
 			);
-			currentVersion = FD2D424D1C9BE552003CE1EC /* barometer.xcdatamodel */;
+			currentVersion = FD27BF081CAE477F00B00256 /* barometer.xcdatamodel */;
 			path = barometer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
