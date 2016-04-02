@@ -21,10 +21,15 @@ CLLocationManagerDelegate
 
 @implementation NetWork{
     CLLocationManager *locationManager;
+    WeatherModel *model;
 }
 
 - (void) requestDate {
-    [self getLocation];
+    if (!model) {
+        [self getLocation];
+    }else {
+        
+    }
 }
 
 
