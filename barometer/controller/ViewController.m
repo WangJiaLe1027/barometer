@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "NetWork.h"
 #import "Header.h"
+#import "WeatherModel.h"
 
 static const CGFloat topPadding = 40;
 @interface ViewController ()
@@ -22,9 +23,11 @@ static const CGFloat topPadding = 40;
     UILabel *titleLabel;
     UILabel *pressLabel;
     UILabel *heightChangeLabel;
+    UILabel *tipsLabel;
     
     BOOL tap;
     NetWork *net;
+    WeatherModel *model;
     
     UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
     UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
@@ -47,7 +50,9 @@ static const CGFloat topPadding = 40;
     
     
     net = [NetWork new ];
-    [net requestDate];
+    model = [net requestDate];
+    
+    
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 30, 30)];
     btn.backgroundColor = [UIColor blackColor];
@@ -65,6 +70,8 @@ static const CGFloat topPadding = 40;
     
     
 }
+
+
 - (void) initUI {
     titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:20];
@@ -79,6 +86,14 @@ static const CGFloat topPadding = 40;
     pressLabel.textAlignment = NSTextAlignmentCenter;
     pressLabel.text = @"测量中...";
     [self.view addSubview:pressLabel];
+    
+    tipsLabel = [[UILabel alloc] init];
+    tipsLabel.font = [UIFont systemFontOfSize:16];
+    tipsLabel.frame = CGRectMake(0,  topPadding * 2 + titleLabel.frame.size.height + pressLabel.frame.size.height, SCREEN_WIDTH, pressLabel.font.lineHeight);
+    tipsLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:tipsLabel];
+    
+    
 }
 
 - (void) btnClick {

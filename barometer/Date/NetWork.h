@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WeatherModel.h"
 
 @interface NetWork : NSObject
-- (void) requestDate;
+- (WeatherModel *) requestDate;
 @end

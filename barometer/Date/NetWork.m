@@ -11,7 +11,7 @@
 #import "Header.h"
 #import "NetWork.h"
 #import "YYModel.h"
-#import "WeatherModel.h"
+
 
 @interface NetWork ()
 <
@@ -24,12 +24,9 @@ CLLocationManagerDelegate
     WeatherModel *model;
 }
 
-- (void) requestDate {
-    if (!model) {
-        [self getLocation];
-    }else {
-        
-    }
+- (WeatherModel *) requestDate {
+    [self getLocation];
+    return model;
 }
 
 
@@ -42,10 +39,7 @@ CLLocationManagerDelegate
     [locationManager startUpdatingLocation];
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *currLocation = [locations lastObject];
-    NSLog(@"altitude%@",[NSString stringWithFormat:@"%f",currLocation.altitude]);
-    
+- (void) getModel:(CLLocation *)currLocation {
     CLLocation *c = [[CLLocation alloc] initWithLatitude:currLocation.coordinate.latitude longitude:currLocation.coordinate.longitude];
     
     NSMutableArray *userDefaultLanguages = [[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"];
@@ -77,7 +71,11 @@ CLLocationManagerDelegate
                          httpArg = [httpArg stringByReplacingOccurrencesOfString:@" " withString:@""];
                          httpArg = [httpArg substringToIndex:httpArg.length-3];
                          
+                         
                          [self request: httpUrl withHttpArg: httpArg];
+                         
+                         
+                         
                          [[NSUserDefaults standardUserDefaults] setObject:userDefaultLanguages forKey:@"AppleLanguages"];
                      }
                      
@@ -85,7 +83,16 @@ CLLocationManagerDelegate
                      {
                          NSLog(@"ERROR: %@", error); }
                  }];
+
+}
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *currLocation = [locations lastObject];
+    NSLog(@"altitude%@",[NSString stringWithFormat:@"%f",currLocation.altitude]);
     
+    if (!model) {
+        [self getModel:currLocation];
+    }
 }
 
 
@@ -104,21 +111,26 @@ CLLocationManagerDelegate
                                    NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
                                } else {
                                    
+                                   
                                    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                    
-                                   
-                                   NSArray *vl = [dic allValues];
-                                   NSDictionary *dic2 = vl[0][0];
-                                   
-                                   WeatherModel *model = [WeatherModel yy_modelWithDictionary:dic2];
-                                   NSLog(@"%@",model.suggestion.flu.txt);
+                                   if ([dic allKeys].count == 0) {
+                                       [SVProgressHUD showErrorWithStatus:@"！"];
+                                       
+                                   }else {
 
-                                   
-                                   if (![[dic2 objectForKey:@"status"] isEqualToString:@"ok"]
-                                       ) {
-                                       [SVProgressHUD showErrorWithStatus:[dic2 objectForKey:@"status"]];
+                                       NSArray *vl = [dic allValues];
+                                       NSDictionary *dic2 = vl[0][0];
+                                       
+                                       model = [WeatherModel yy_modelWithDictionary:dic2];
+                                       NSLog(@"%@",model.suggestion.flu.txt);
+                                       
+                                       if (![[dic2 objectForKey:@"status"] isEqualToString:@"ok"]
+                                           ) {
+                                           [SVProgressHUD showErrorWithStatus:[dic2 objectForKey:@"status"]];
+                                       }
                                    }
-                               }
+                                                                  }
                            }];
 }
 
