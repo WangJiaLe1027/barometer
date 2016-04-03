@@ -13,6 +13,16 @@
 #import "Header.h"
 #import "WeatherModel.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信SDK头文件
+#import "WXApi.h"
+
 static const CGFloat topPadding = 40;
 @interface ViewController ()
 @end
@@ -57,8 +67,8 @@ static const CGFloat topPadding = 40;
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 30, 30)];
     btn.backgroundColor = [UIColor blackColor];
-    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [bgView addSubview:btn];
+    [btn addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    [bgView addSubview:btn];
     
     myCMA = [[CMAltimeter alloc] init];
     if (![CMAltimeter isRelativeAltitudeAvailable]) {
@@ -131,7 +141,44 @@ static const CGFloat topPadding = 40;
     }
 }
 
-
+- (void) share {
+    NSArray* imageArray = @[[UIImage imageNamed:@"icon"]];
+    if (imageArray) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:[NSString stringWithFormat:@"气压会影响情绪，我当前气压：%@，我的情绪平稳。",pressLabel.text]
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://wangjiale1027.github.io/qiyaji/"]
+                                          title:@"气压与情绪"
+                                           type:SSDKContentTypeAuto];
+        
+        [ShareSDK showShareActionSheet:nil items:nil shareParams:shareParams onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+            switch (state) {
+                case SSDKResponseStateSuccess:
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                        message:nil
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"确定"
+                                                              otherButtonTitles:nil];
+                    [alertView show];
+                    break;
+                }
+                case SSDKResponseStateFail:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                    message:[NSString stringWithFormat:@"%@",error]
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
+                    break;
+                }
+                default:
+                    break;
+            }
+        }];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
