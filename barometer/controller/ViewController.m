@@ -28,6 +28,7 @@ static const CGFloat topPadding = 40;
     BOOL tap;
     NetWork *net;
     WeatherModel *model;
+    UIView *bgView;
     
     UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
     UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
@@ -45,8 +46,8 @@ static const CGFloat topPadding = 40;
     leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     
-    [self.view addGestureRecognizer:leftSwipeGestureRecognizer];
-    [self.view addGestureRecognizer:rightSwipeGestureRecognizer];
+    [bgView addGestureRecognizer:leftSwipeGestureRecognizer];
+    [bgView addGestureRecognizer:rightSwipeGestureRecognizer];
     
     
     net = [NetWork new ];
@@ -57,7 +58,7 @@ static const CGFloat topPadding = 40;
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 30, 30)];
     btn.backgroundColor = [UIColor blackColor];
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
+//    [bgView addSubview:btn];
     
     myCMA = [[CMAltimeter alloc] init];
     if (![CMAltimeter isRelativeAltitudeAvailable]) {
@@ -71,27 +72,34 @@ static const CGFloat topPadding = 40;
     
 }
 
-
 - (void) initUI {
+    [self.view setBackgroundColor:HexColor(0x646464)];
+    
+    bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [bgView setBackgroundColor:HexColor(0xffffff)];
+    [self.view addSubview:bgView];
+    
     titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:20];
     titleLabel.frame = CGRectMake(0, topPadding, SCREEN_WIDTH, titleLabel.font.lineHeight);
     titleLabel.text = @"当前气压";
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:titleLabel];
+    [bgView addSubview:titleLabel];
     
     pressLabel = [[UILabel alloc] init];
-    pressLabel.font = [UIFont systemFontOfSize:55];
+    pressLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:55];
     pressLabel.frame = CGRectMake(0,  topPadding * 2 + titleLabel.frame.size.height, SCREEN_WIDTH, pressLabel.font.lineHeight);
     pressLabel.textAlignment = NSTextAlignmentCenter;
     pressLabel.text = @"测量中...";
-    [self.view addSubview:pressLabel];
+    [bgView addSubview:pressLabel];
     
     tipsLabel = [[UILabel alloc] init];
     tipsLabel.font = [UIFont systemFontOfSize:16];
-    tipsLabel.frame = CGRectMake(0,  topPadding * 2 + titleLabel.frame.size.height + pressLabel.frame.size.height, SCREEN_WIDTH, pressLabel.font.lineHeight);
+    tipsLabel.frame = CGRectMake(20,  topPadding * 3 + titleLabel.frame.size.height + pressLabel.frame.size.height, SCREEN_WIDTH - 40, pressLabel.font.lineHeight);
     tipsLabel.textAlignment = NSTextAlignmentLeft;
-    [self.view addSubview:tipsLabel];
+    tipsLabel.numberOfLines = 0;
+    tipsLabel.text = @"tips:\n        昼夜温差较大，较易发生感冒，请适当增减衣服。体质较弱的朋友请注意防护。";
+    [bgView addSubview:tipsLabel];
     
     
 }
@@ -101,7 +109,7 @@ static const CGFloat topPadding = 40;
     CGRect tapFrame = CGRectMake(200, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
     [UIView animateWithDuration:0.2 animations:^{
-        self.view.frame = tap ? normalFrame : tapFrame;
+        bgView.frame = tap ? normalFrame : tapFrame;
     }];
     tap = !tap;
 }
@@ -112,13 +120,13 @@ static const CGFloat topPadding = 40;
     CGRect tapFrame = CGRectMake(200, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         [UIView animateWithDuration:0.2 animations:^{
-            self.view.frame = normalFrame;
+            bgView.frame = normalFrame;
         }];
     }
     
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         [UIView animateWithDuration:0.2 animations:^{
-            self.view.frame = tapFrame;
+            bgView.frame = tapFrame;
         }];
     }
 }

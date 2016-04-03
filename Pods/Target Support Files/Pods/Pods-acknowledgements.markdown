@@ -26,6 +26,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## MOBFoundation
+
+Copyright © 2012-2015 mob
+
 ## SVProgressHUD
 
 Copyright (c) 2011-2016 Sam Vermette, Tobias Tiemerding and contributors.
@@ -55,6 +59,10 @@ A different license may apply to other resources included in this package,
 including Freepik Icons. Please consult their 
 respective headers for the terms of their individual licenses.
 
+
+## ShareSDK3
+
+Copyright © 2012-2015 mob
 
 ## UMengAnalytics
 
