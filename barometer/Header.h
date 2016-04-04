@@ -9,6 +9,14 @@
 #ifndef Header_h
 #define Header_h
 
+#define umengAppkey @""
+#define baiduApiKey @""
+
+#define wechatAppID @""
+#define wechatAppSecret @""
+
+#define shareSDKAppKey @""
+
 
 
 #define PRE_IOS_8 ([UIDevice currentSystemVersion] < 8.0)//小于ios8.0的版本
