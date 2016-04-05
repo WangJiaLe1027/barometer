@@ -9,13 +9,6 @@
 #ifndef Header_h
 #define Header_h
 
-#define umengAppkey @""
-#define baiduApiKey @""
-
-#define wechatAppID @""
-#define wechatAppSecret @""
-
-#define shareSDKAppKey @""
 
 
 

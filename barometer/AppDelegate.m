@@ -68,8 +68,8 @@
                                        appSecret:wechatAppSecret];
                  break;
              case SSDKPlatformTypeQQ:
-                 [appInfo SSDKSetupQQByAppId:@"100371282"
-                                      appKey:@"aed9b0303e3ed1e27bae87c33761161d"
+                 [appInfo SSDKSetupQQByAppId:QQAppId
+                                      appKey:QQAppKey
                                     authType:SSDKAuthTypeBoth];
                  break;
              default:

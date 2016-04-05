@@ -137,6 +137,7 @@ static const CGFloat topPadding = 40;
     
     [sharingAppView showViewWithtitle:@"气压计情绪" content:pressLabel.text url:@"http://wangjiale1027.github.io/qiyaji" imageName:@"icon"];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
