@@ -18,6 +18,25 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxc653284e6b898444</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41E1A53A</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -26,6 +45,14 @@
 		<string>mqqapi</string>
 		<string>weixin</string>
 		<string>wechat</string>
+    <string>mqqopensdkapiV2</string>
+        <string>mqqOpensdkSSologin</string>
+        <string>mqq</string>
+        <string>mqzoneopensdkapiV2</string>
+        <string>mqzoneopensdkapi19</string>
+        <string>mqzoneioensdkapi</string>
+        <string>mqzone</string>
+        
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
