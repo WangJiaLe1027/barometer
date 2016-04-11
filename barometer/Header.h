@@ -20,6 +20,7 @@
 #define QQAppKey @""
 
 #define shareSDKAppKey @""
+#define forgreen 1
 
 
 #define PRE_IOS_8 ([UIDevice currentSystemVersion] < 8.0)//小于ios8.0的版本
