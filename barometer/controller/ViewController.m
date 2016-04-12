@@ -34,6 +34,9 @@ static const CGFloat topPadding = 40;
     
     UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
     UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+    
+    CGPoint beginPoint;
+    CGPoint endPoint;
 }
 
 - (void)viewDidLoad {
@@ -119,19 +122,19 @@ static const CGFloat topPadding = 40;
 
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
-    CGRect normalFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    CGRect tapFrame = CGRectMake(200, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [UIView animateWithDuration:0.2 animations:^{
-            bgView.frame = normalFrame;
-        }];
-    }
-    
-    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        [UIView animateWithDuration:0.2 animations:^{
-            bgView.frame = tapFrame;
-        }];
-    }
+//    CGRect normalFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//    CGRect tapFrame = CGRectMake(200, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            bgView.frame = normalFrame;
+//        }];
+//    }
+//    
+//    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            bgView.frame = tapFrame;
+//        }];
+//    }
 }
 
 - (void) share {
@@ -143,5 +146,25 @@ static const CGFloat topPadding = 40;
     [super didReceiveMemoryWarning];
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    
+    beginPoint = [touch locationInView:bgView];
+    
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+    UITouch *touch = [touches anyObject];
+    
+    CGPoint nowPoint = [touch locationInView:bgView];
+    
+    float offsetX = nowPoint.x - beginPoint.x;
+    
+    bgView.frame = CGRectMake(bgView.frame.origin.x + offsetX, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
 
 @end
