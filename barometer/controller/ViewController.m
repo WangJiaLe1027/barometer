@@ -57,9 +57,10 @@ static const CGFloat topPadding = 40;
     
     
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 30, 30)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 40, SCREEN_WIDTH, 40)];
     btn.backgroundColor = [UIColor blackColor];
     [btn addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"分享气压" forState:0];
     [bgView addSubview:btn];
     
     myCMA = [[CMAltimeter alloc] init];
