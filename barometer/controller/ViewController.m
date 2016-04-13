@@ -32,27 +32,18 @@ static const CGFloat topPadding = 40;
     WeatherModel *model;
     UIView *bgView;
     
-    UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
-    UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
-    
-    CGPoint beginPoint;
-    CGPoint endPoint;
+    CGFloat lastPointX;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    lastPointX = 0;
     tap = NO;
-    
-    
-    leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
-    rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
-    
-    leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    
-    [bgView addGestureRecognizer:leftSwipeGestureRecognizer];
-    [bgView addGestureRecognizer:rightSwipeGestureRecognizer];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc]
+                                                    initWithTarget:self
+                                                    action:@selector(handlePan:)];
+    [bgView addGestureRecognizer:panGestureRecognizer];
     
     
     net = [NetWork new ];
@@ -138,7 +129,6 @@ static const CGFloat topPadding = 40;
 }
 
 - (void) share {
-    
     [sharingAppView showViewWithtitle:@"气压计情绪" content:pressLabel.text url:@"http://wangjiale1027.github.io/qiyaji" imageName:@"icon"];
 }
 
@@ -146,25 +136,60 @@ static const CGFloat topPadding = 40;
     [super didReceiveMemoryWarning];
 }
 
+- (void) handlePan:(UIPanGestureRecognizer*) recognizer {
+    CGPoint point = [recognizer translationInView:self.view];
+    CGRect normalFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    CGRect tapFrame = CGRectMake(SCREEN_WIDTH * 0.618, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    if(recognizer.state == UIGestureRecognizerStateBegan) {
+        
+    }else if(recognizer.state == UIGestureRecognizerStateChanged){
+        if (lastPointX == 0) {
+            if (bgView.frame.origin.x < SCREEN_WIDTH * 0.618) {
+                [self changeView:bgView x:point.x];
+            }
+        }else{
+            if (bgView.frame.origin.x > 0) {
+                [self changeViewLeft:bgView x:point.x];
+            }
+            
+        }
+    }else if(recognizer.state == UIGestureRecognizerStateEnded){
+        
+        CGPoint velocity = [recognizer velocityInView:self.view];
+        CGFloat magnitude = sqrtf((velocity.x * velocity.x) + (velocity.y * velocity.y));
+        CGFloat slideMult = magnitude / 200;
+        NSLog(@"magnitude: %f, slideMult: %f", magnitude, slideMult);
+        
+        if (bgView.frame.origin.x > SCREEN_WIDTH * 0.1 && lastPointX == 0) {
+            [UIView animateWithDuration:0.2 animations:^{
+                bgView.frame = tapFrame;
+            }];
+        }else {
+            [UIView animateWithDuration:0.2 animations:^{
+                bgView.frame = normalFrame;
+            }];
+        }
+        lastPointX = bgView.frame.origin.x;
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    
-    beginPoint = [touch locationInView:bgView];
-    
+    }
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)changeView:(UIView*)view x:(CGFloat)x {
+    if (x<0) {
+        return;
+    }
+    CGRect viewFrame = view.frame;
+    viewFrame.origin.x = x;
+    view.frame = viewFrame;
+}
 
-    UITouch *touch = [touches anyObject];
-    
-    CGPoint nowPoint = [touch locationInView:bgView];
-    
-    float offsetX = nowPoint.x - beginPoint.x;
-    
-    bgView.frame = CGRectMake(bgView.frame.origin.x + offsetX, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+- (void)changeViewLeft:(UIView*)view x:(CGFloat)x {
+    if (x>0) {
+        return;
+    }
+    CGRect viewFrame = view.frame;
+    viewFrame.origin.x = SCREEN_WIDTH*0.618 + x;
+    view.frame = viewFrame;
 }
 
 @end
