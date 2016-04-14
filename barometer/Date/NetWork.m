@@ -14,29 +14,14 @@
 
 
 @interface NetWork ()
-<
-CLLocationManagerDelegate
->
 @end
 
 @implementation NetWork{
-    CLLocationManager *locationManager;
     WeatherModel *model;
 }
 
-- (WeatherModel *) requestDate {
-    [self getLocation];
-    return model;
-}
-
-
-- (void) getLocation {
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.desiredAccuracy=kCLLocationAccuracyBest;
-    locationManager.distanceFilter=10;
-    locationManager.delegate = self;
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
+- (void) requestDate:(CLLocation *)currLocation {
+    [self getModel:currLocation];
 }
 
 - (void) getModel:(CLLocation *)currLocation {
@@ -74,8 +59,6 @@ CLLocationManagerDelegate
                          
                          [self request: httpUrl withHttpArg: httpArg];
                          
-                         
-                         
                          [[NSUserDefaults standardUserDefaults] setObject:userDefaultLanguages forKey:@"AppleLanguages"];
                      }
                      
@@ -85,17 +68,6 @@ CLLocationManagerDelegate
                  }];
 
 }
-
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *currLocation = [locations lastObject];
-    NSLog(@"altitude%@",[NSString stringWithFormat:@"%f",currLocation.altitude]);
-    
-    if (!model) {
-        [self getModel:currLocation];
-    }
-}
-
-
 
 -(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
     NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
@@ -129,19 +101,12 @@ CLLocationManagerDelegate
                                            ) {
                                            [SVProgressHUD showErrorWithStatus:[dic2 objectForKey:@"status"]];
                                        }
+                                       
+                                       if (self.delegate && [self.delegate respondsToSelector:@selector(Model:)]) {
+                                           [self.delegate Model:model];
+                                       }
                                    }
-                                                                  }
+                                }
                            }];
 }
-
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    if ([error code]==kCLErrorDenied) {
-        [SVProgressHUD showErrorWithStatus:@"访问地理位置被拒绝，请设置"];
-    }
-    if ([error code]==kCLErrorLocationUnknown) {
-        [SVProgressHUD showErrorWithStatus:@"无法获取位置信息"];
-    }
-}
-
-
 @end

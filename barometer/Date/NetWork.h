@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "WeatherModel.h"
 
+@protocol NetWorkDelegate <NSObject>
+- (void)Model:(WeatherModel *)model;
+@end
+
+
 @interface NetWork : NSObject
-- (WeatherModel *) requestDate;
+- (void) requestDate:(CLLocation *)currLocation;
+@property (nonatomic, assign) id<NetWorkDelegate> delegate;
 @end
