@@ -73,9 +73,6 @@ NetWorkDelegate
     
     
     myCMA = [[CMAltimeter alloc] init];
-    if (![CMAltimeter isRelativeAltitudeAvailable]) {
-        [SVProgressHUD showErrorWithStatus:@"当前设备不支持气压计"];
-    }
     [myCMA startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
         heightChangeLabel.text = [NSString stringWithFormat:@"海拔变化：%@米",altitudeData.relativeAltitude];
         pressLabel.text = [NSString stringWithFormat:@"%.4fkPa",altitudeData.pressure.floatValue];
@@ -189,6 +186,11 @@ NetWorkDelegate
 
 - (void) Model:(WeatherModel *)model {
     localModel = model;
+    if (![CMAltimeter isRelativeAltitudeAvailable]) {
+        [SVProgressHUD showErrorWithStatus:@"当前设备不支持气压计"];
+        pressLabel.text = [NSString stringWithFormat:@"%@mBar",localModel.now.pres];
+        heightChangeLabel.text = @"气压数据来源于网络";
+    }
     [self refreshTips];
 }
 

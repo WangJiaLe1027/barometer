@@ -136,14 +136,14 @@
 		FD2D423F1C9BE552003CE1EC /* barometer */ = {
 			isa = PBXGroup;
 			children = (
+				FD6A104F1CACBFAD006D9703 /* Header.h */,
+				FD27BEF31CAE293A00B00256 /* Date */,
+				FD27BF121CAE480900B00256 /* controller */,
 				FD1A85901CB2183A001EDDF5 /* shareView */,
 				FD2D42431C9BE552003CE1EC /* AppDelegate.h */,
 				FD2D42441C9BE552003CE1EC /* AppDelegate.m */,
 				FD27BF0D1CAE479500B00256 /* Main.storyboard */,
 				FD27BF0B1CAE479500B00256 /* LaunchScreen.storyboard */,
-				FD27BF121CAE480900B00256 /* controller */,
-				FD27BEF31CAE293A00B00256 /* Date */,
-				FD6A104F1CACBFAD006D9703 /* Header.h */,
 				FD27BF0A1CAE479500B00256 /* Info.plist */,
 				FD27BF0C1CAE479500B00256 /* main.m */,
 				FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */,
