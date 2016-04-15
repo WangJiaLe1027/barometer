@@ -244,18 +244,18 @@ NetWorkDelegate
         if (bgView.frame.origin.x > SCREEN_WIDTH * 0.25 && lastPointX == 0) {
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = tapFrame;
-                [dropDownMenu setExpanding:YES];
             }];
+           [dropDownMenu setExpanding:YES];
         }else if(bgView.frame.origin.x < SCREEN_WIDTH*0.6){
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = normalFrame;
-                [dropDownMenu setExpanding:NO];
             }];
+            [dropDownMenu setExpanding:NO];
         }else {
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = tapFrame;
-                [dropDownMenu setExpanding:YES];
             }];
+            [dropDownMenu setExpanding:YES];
         }
         
         lastPointX = bgView.frame.origin.x;
