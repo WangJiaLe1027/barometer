@@ -30,6 +30,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     [MobClick startWithAppkey:umengAppkey reportPolicy:BATCH   channelId:@"Web"];
     
     

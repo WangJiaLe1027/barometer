@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A7966BCB80B4FA76F0F8DAA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0EB19C84CF3032273C10A7 /* libPods.a */; };
-		FD1A85931CB2183A001EDDF5 /* sharingAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A85921CB2183A001EDDF5 /* sharingAppView.m */; };
+		FD16B2D61CC11C9800C21938 /* sharingAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD16B2D51CC11C9800C21938 /* sharingAppView.m */; };
+		FD16B2DA1CC11CF100C21938 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD16B2D91CC11CF100C21938 /* ItemView.m */; };
 		FD1A85951CB21F72001EDDF5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1A85941CB21F72001EDDF5 /* SystemConfiguration.framework */; };
 		FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BEF51CAE293A00B00256 /* NetWork.m */; };
 		FD27BF091CAE477F00B00256 /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */; };
@@ -22,14 +23,17 @@
 		FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2D424F1C9BE552003CE1EC /* Assets.xcassets */; };
 		FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */; };
 		FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */; };
+		FDC10F141CC126BE00086161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC10F131CC126BE00086161 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54366425E82997337EE1B1C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D84617D72A1C887918162C4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FB0EB19C84CF3032273C10A7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD1A85911CB2183A001EDDF5 /* sharingAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sharingAppView.h; sourceTree = "<group>"; };
-		FD1A85921CB2183A001EDDF5 /* sharingAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sharingAppView.m; sourceTree = "<group>"; };
+		FD16B2D41CC11C9800C21938 /* sharingAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sharingAppView.h; sourceTree = "<group>"; };
+		FD16B2D51CC11C9800C21938 /* sharingAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sharingAppView.m; sourceTree = "<group>"; };
+		FD16B2D81CC11CF100C21938 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
+		FD16B2D91CC11CF100C21938 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
 		FD1A85941CB21F72001EDDF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD27BEF41CAE293A00B00256 /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
 		FD27BEF51CAE293A00B00256 /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 		FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FD6A104F1CACBFAD006D9703 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FDC10F131CC126BE00086161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC10F141CC126BE00086161 /* QuartzCore.framework in Frameworks */,
 				FD1A85951CB21F72001EDDF5 /* SystemConfiguration.framework in Frameworks */,
 				FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */,
 				FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */,
@@ -69,6 +75,7 @@
 		7E83F6C457F735156C578648 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDC10F131CC126BE00086161 /* QuartzCore.framework */,
 				FD1A85941CB21F72001EDDF5 /* SystemConfiguration.framework */,
 				FB0EB19C84CF3032273C10A7 /* libPods.a */,
 				FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */,
@@ -86,13 +93,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD1A85901CB2183A001EDDF5 /* shareView */ = {
+		FD16B2D21CC11C9800C21938 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FD1A85911CB2183A001EDDF5 /* sharingAppView.h */,
-				FD1A85921CB2183A001EDDF5 /* sharingAppView.m */,
+				FD16B2D71CC11CD400C21938 /* ItemView */,
+				FD16B2D31CC11C9800C21938 /* shareView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD16B2D31CC11C9800C21938 /* shareView */ = {
+			isa = PBXGroup;
+			children = (
+				FD16B2D41CC11C9800C21938 /* sharingAppView.h */,
+				FD16B2D51CC11C9800C21938 /* sharingAppView.m */,
 			);
 			path = shareView;
+			sourceTree = "<group>";
+		};
+		FD16B2D71CC11CD400C21938 /* ItemView */ = {
+			isa = PBXGroup;
+			children = (
+				FD16B2D81CC11CF100C21938 /* ItemView.h */,
+				FD16B2D91CC11CF100C21938 /* ItemView.m */,
+			);
+			path = ItemView;
 			sourceTree = "<group>";
 		};
 		FD27BEF31CAE293A00B00256 /* Date */ = {
@@ -139,7 +164,7 @@
 				FD6A104F1CACBFAD006D9703 /* Header.h */,
 				FD27BEF31CAE293A00B00256 /* Date */,
 				FD27BF121CAE480900B00256 /* controller */,
-				FD1A85901CB2183A001EDDF5 /* shareView */,
+				FD16B2D21CC11C9800C21938 /* View */,
 				FD2D42431C9BE552003CE1EC /* AppDelegate.h */,
 				FD2D42441C9BE552003CE1EC /* AppDelegate.m */,
 				FD27BF0D1CAE479500B00256 /* Main.storyboard */,
@@ -278,9 +303,10 @@
 				FD27BF101CAE479500B00256 /* main.m in Sources */,
 				FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */,
 				FD2D42451C9BE552003CE1EC /* AppDelegate.m in Sources */,
-				FD1A85931CB2183A001EDDF5 /* sharingAppView.m in Sources */,
+				FD16B2D61CC11C9800C21938 /* sharingAppView.m in Sources */,
 				FD27BF091CAE477F00B00256 /* barometer.xcdatamodeld in Sources */,
 				FD27BF151CAE480900B00256 /* ViewController.m in Sources */,
+				FD16B2DA1CC11CF100C21938 /* ItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

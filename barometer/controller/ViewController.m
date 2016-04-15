@@ -16,14 +16,14 @@
 #import "WeatherModel.h"
 
 #import "sharingAppView.h"
-
-#import "IGLDropDownMenu.h"
+#import "ItemView.h"
 
 static const CGFloat topPadding = 40;
 @interface ViewController ()
 <
 CLLocationManagerDelegate,
-NetWorkDelegate
+NetWorkDelegate,
+ItemViewDelegate
 >
 @end
 
@@ -34,8 +34,6 @@ NetWorkDelegate
     UIView *bgView;
     CGFloat lastPointX;
     
-    IGLDropDownMenu *dropDownMenu;
-    
     UILabel *titleLabel;
     UILabel *pressLabel;
     UILabel *heightChangeLabel;
@@ -44,11 +42,17 @@ NetWorkDelegate
     NetWork *net;
     WeatherModel *localModel;
     
+    NSArray *itemArray;
+    ItemView *item;
+    
     BOOL shouldUpdateModel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationController.navigationBar setHidden:YES];
+    
     [self initUI];
     [self getLocation];
     
@@ -79,40 +83,14 @@ NetWorkDelegate
     }];
 }
 
-
-- (void) initBtn {
-    
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
-    topView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:topView];
-    
-    NSArray *titleArray = @[@"气压",@"气压与情绪",@"气压与死亡",@"气压与天气"];
-    NSMutableArray *dropdownItems = [[NSMutableArray alloc] init];
-    for (NSString *title in titleArray) {
-        IGLDropDownItem *item = [[IGLDropDownItem alloc] init];
-        [item setText:title];
-        [dropdownItems addObject:item];
-
-    }
-    dropDownMenu = [[IGLDropDownMenu alloc] init];
-    [dropDownMenu setFrame:CGRectMake(0, 20, SCREEN_WIDTH * 0.618, 50)];
-    dropDownMenu.menuText = @"当前气压";
-    dropDownMenu.backgroundColor = [UIColor whiteColor];
-    dropDownMenu.paddingLeft = 20;
-    
-    dropDownMenu.type = IGLDropDownMenuTypeFlipFromLeft;
-    dropDownMenu.itemAnimationDelay = 0.1;
-    dropDownMenu.rotate = IGLDropDownMenuRotateNone;
-    dropDownMenu.dropDownItems = dropdownItems;
-    
-    [self.view addSubview:dropDownMenu];
-    [dropDownMenu reloadView];
-}
-
-
 - (void) initUI {
-    [self initBtn];
     [self.view setBackgroundColor:HexColor(0x646464)];
+    
+    
+    itemArray = @[@"所谓气",@"气压",@"气压与情绪",@"气压与天气",@"气压与死亡率"];
+    item = [[ItemView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH * 0.618, SCREEN_HEIGHT) itemArray:itemArray itemHeight:50];
+    item.delegate = self;
+    [self.view addSubview:item];
     
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [bgView setBackgroundColor:HexColor(0xffffff)];
@@ -225,6 +203,25 @@ NetWorkDelegate
     [sharingAppView showViewWithtitle:@"气压计情绪" content:pressLabel.text url:@"http://wangjiale1027.github.io/qiyaji" imageName:@"icon"];
 }
 
+
+- (void) clickItemView:(NSInteger)row {
+    UIViewController *vc = [[UIViewController alloc] init];
+    [vc.view setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    label.text = itemArray[row];
+    label.textAlignment = NSTextAlignmentCenter;
+    [vc.view addSubview:label];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        bgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }];
+    lastPointX = bgView.frame.origin.x;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 - (void) handlePan:(UIPanGestureRecognizer*) recognizer {
     CGPoint point = [recognizer translationInView:self.view];
     CGRect normalFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -247,19 +244,17 @@ NetWorkDelegate
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = tapFrame;
             }];
-           [dropDownMenu setExpanding:YES];
+            [item show3D];
         }else if(bgView.frame.origin.x < SCREEN_WIDTH*0.6){
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = normalFrame;
             }];
-            [dropDownMenu setExpanding:NO];
+            [item show3D];
         }else {
             [UIView animateWithDuration:0.2 animations:^{
                 bgView.frame = tapFrame;
             }];
-            [dropDownMenu setExpanding:YES];
         }
-        
         lastPointX = bgView.frame.origin.x;
     }
 }
