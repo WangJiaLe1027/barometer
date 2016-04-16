@@ -9,20 +9,6 @@
 #ifndef Header_h
 #define Header_h
 
-#define umengAppkey @""
-
-#define baiduApiKey @""
-
-#define wechatAppID @""
-
-#define wechatAppSecret @""
-
-#define QQAppId @""
-
-#define QQAppKey @""
-
-#define shareSDKAppKey @""
-
 
 #define PRE_IOS_8 ([UIDevice currentSystemVersion] < 8.0)//小于ios8.0的版本
 #define ONE_PIXEL ([[UIScreen mainScreen] scale] > 0.0 ? 1.0 / [[UIScreen mainScreen] scale] : 1.0)
