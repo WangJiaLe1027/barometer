@@ -87,7 +87,7 @@ ItemViewDelegate
     [self.view setBackgroundColor:HexColor(0x646464)];
     
     
-    itemArray = @[@"所谓气",@"气压",@"气压与情绪",@"气压与天气",@"气压与死亡率"];
+    itemArray = @[@"所谓气",@"气压",@"气压与情绪",@"气压与天气",@"气压与死亡率",@"设置"];
     item = [[ItemView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH * 0.618, SCREEN_HEIGHT) itemArray:itemArray itemHeight:50];
     item.delegate = self;
     [self.view addSubview:item];
