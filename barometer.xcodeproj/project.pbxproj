@@ -24,7 +24,9 @@
 		FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2D424F1C9BE552003CE1EC /* Assets.xcassets */; };
 		FD2D425B1C9BE7A7003CE1EC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */; };
 		FD2D425D1C9BE7AE003CE1EC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */; };
+		FD592BF91CE4B0C300D717E2 /* PUnitEN.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD592BF81CE4B0C300D717E2 /* PUnitEN.plist */; };
 		FDC10F141CC126BE00086161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC10F131CC126BE00086161 /* QuartzCore.framework */; };
+		FDC2A20D1CE4A47700B67A3D /* PressureUnit.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDC2A20C1CE4A47700B67A3D /* PressureUnit.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +57,10 @@
 		FD2D424F1C9BE552003CE1EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD2D425A1C9BE7A7003CE1EC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		FD2D425C1C9BE7AE003CE1EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FD592BF81CE4B0C300D717E2 /* PUnitEN.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PUnitEN.plist; sourceTree = "<group>"; };
 		FD6A104F1CACBFAD006D9703 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		FDC10F131CC126BE00086161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FDC2A20C1CE4A47700B67A3D /* PressureUnit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PressureUnit.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				FD27BEF51CAE293A00B00256 /* NetWork.m */,
 				FD27BF161CAE671E00B00256 /* WeatherModel.h */,
 				FD27BF171CAE671F00B00256 /* WeatherModel.m */,
+				FDC2A20C1CE4A47700B67A3D /* PressureUnit.plist */,
+				FD592BF81CE4B0C300D717E2 /* PUnitEN.plist */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -242,7 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC2A20D1CE4A47700B67A3D /* PressureUnit.plist in Resources */,
 				FD27BF0F1CAE479500B00256 /* LaunchScreen.storyboard in Resources */,
+				FD592BF91CE4B0C300D717E2 /* PUnitEN.plist in Resources */,
 				FD27BF0E1CAE479500B00256 /* Info.plist in Resources */,
 				FD2D42501C9BE552003CE1EC /* Assets.xcassets in Resources */,
 				FD27BF111CAE479500B00256 /* Main.storyboard in Resources */,

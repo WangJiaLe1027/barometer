@@ -55,14 +55,22 @@ PressureUnitVCDelegate
     [super viewDidLoad];
     
     [self.navigationController.navigationBar setHidden:YES];
+    NSString *pressureUnit = [[NSUserDefaults standardUserDefaults] stringForKey:@"pressureUnit"];
+    if ([pressureUnit length]>0) {
+        
+        
+        
+//        [[NSUserDefaults standardUserDefaults] setObject:newVersion forKey:@"guidePageVersion"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+    
     
     [self initUI];
     [self getLocation];
     
     localModel = [[WeatherModel alloc] init];
-    
     lastPointX = 0;
-    
     
     UITapGestureRecognizer *tapTipsLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(refreshTips)];
     [tipsLabel setUserInteractionEnabled:YES];
@@ -86,7 +94,7 @@ PressureUnitVCDelegate
     myCMA = [[CMAltimeter alloc] init];
     [myCMA startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
         heightChangeLabel.text = [NSString stringWithFormat:@"海拔变化：%@米",altitudeData.relativeAltitude];
-        pressLabel.text = [NSString stringWithFormat:@"%.4fkPa",altitudeData.pressure.floatValue];
+        pressLabel.text = [NSString stringWithFormat:@"%.4f%@",altitudeData.pressure.floatValue,@"kPa"];
     }];
 }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>兆帕(MPa)</string>
+	<string>千帕(kPa)</string>
+	<string>帕(Pa)</string>
+	<string>磅力/英寸²(lbf/in²=psi)</string>
+	<string>毫米汞柱(mmHg)</string>
+	<string>毫米水柱(mmH2O)</string>
+	<string>英寸水柱(inH2O)</string>
+	<string>千克力/厘米²(kgf/cm²)</string>
+    <string>标准大气压(atm)</string>
+    <string>巴(bar)</string>
+    <string>毫巴(mbar)</string>
+    <string>托(Torr)</string>
+</array>
+</plist>

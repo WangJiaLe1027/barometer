@@ -26,7 +26,8 @@ UITableViewDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    unitArray = @[@"兆帕(MPa)",@"千帕(kPa)",@"帕(Pa)",@"磅力/英寸²(lbf/in²=psi)",@"毫米汞柱(mmHg)",@"毫米水柱(mmH2O)",@"英寸水柱(inH2O)",@"千克力/厘米²(kgf/cm²)",@"标准大气压(atm)",@"巴(bar)",@"毫巴(mbar)",@"托(Torr)"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PressureUnit" ofType:@"plist"];
+    unitArray = [[NSArray alloc] initWithContentsOfFile:path];
     
     unitTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
     unitTableView.delegate = self;
