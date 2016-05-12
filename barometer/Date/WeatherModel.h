@@ -42,7 +42,7 @@
 @property (nonatomic, strong) NSString *fl;   //30,体感温度
 @property (nonatomic, strong) NSString *hum;  //20%",相对湿度（%）
 @property (nonatomic, strong) NSString *pcpn; //0.0",降水量（mm）
-@property (nonatomic, strong) NSString *pres; //1001",气压
+@property (nonatomic, strong) NSString *pres; //1001",气压mBar
 @property (nonatomic, strong) NSString *tmp;  //32",温度
 @property (nonatomic, strong) NSString *vis;  //10", 能见度（km）
 @property (nonatomic, strong) nowWindModel *wind; //风力风向

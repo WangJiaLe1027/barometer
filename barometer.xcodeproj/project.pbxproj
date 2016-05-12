@@ -10,6 +10,7 @@
 		A7966BCB80B4FA76F0F8DAA8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0EB19C84CF3032273C10A7 /* libPods.a */; };
 		FD16B2D61CC11C9800C21938 /* sharingAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD16B2D51CC11C9800C21938 /* sharingAppView.m */; };
 		FD16B2DA1CC11CF100C21938 /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD16B2D91CC11CF100C21938 /* ItemView.m */; };
+		FD17D0121CE466E500E5FDE0 /* PressureUnitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FD17D0111CE466E500E5FDE0 /* PressureUnitVC.m */; };
 		FD1A85951CB21F72001EDDF5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1A85941CB21F72001EDDF5 /* SystemConfiguration.framework */; };
 		FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = FD27BEF51CAE293A00B00256 /* NetWork.m */; };
 		FD27BF091CAE477F00B00256 /* barometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD27BF071CAE477F00B00256 /* barometer.xcdatamodeld */; };
@@ -34,6 +35,8 @@
 		FD16B2D51CC11C9800C21938 /* sharingAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sharingAppView.m; sourceTree = "<group>"; };
 		FD16B2D81CC11CF100C21938 /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
 		FD16B2D91CC11CF100C21938 /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
+		FD17D0101CE466E500E5FDE0 /* PressureUnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PressureUnitVC.h; sourceTree = "<group>"; };
+		FD17D0111CE466E500E5FDE0 /* PressureUnitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PressureUnitVC.m; sourceTree = "<group>"; };
 		FD1A85941CB21F72001EDDF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD27BEF41CAE293A00B00256 /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
 		FD27BEF51CAE293A00B00256 /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 			children = (
 				FD27BF131CAE480900B00256 /* ViewController.h */,
 				FD27BF141CAE480900B00256 /* ViewController.m */,
+				FD17D0101CE466E500E5FDE0 /* PressureUnitVC.h */,
+				FD17D0111CE466E500E5FDE0 /* PressureUnitVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD17D0121CE466E500E5FDE0 /* PressureUnitVC.m in Sources */,
 				FD27BF181CAE671F00B00256 /* WeatherModel.m in Sources */,
 				FD27BF101CAE479500B00256 /* main.m in Sources */,
 				FD27BEF61CAE293A00B00256 /* NetWork.m in Sources */,

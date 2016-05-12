@@ -18,12 +18,15 @@
 #import "sharingAppView.h"
 #import "ItemView.h"
 
+#import "PressureUnitVC.h"
+
 static const CGFloat topPadding = 40;
 @interface ViewController ()
 <
 CLLocationManagerDelegate,
 NetWorkDelegate,
-ItemViewDelegate
+ItemViewDelegate,
+PressureUnitVCDelegate
 >
 @end
 
@@ -65,6 +68,10 @@ ItemViewDelegate
     [tipsLabel setUserInteractionEnabled:YES];
     [tipsLabel addGestureRecognizer:tapTipsLabel];
     
+    UITapGestureRecognizer *tapPressLabel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setUnitForPress)];
+    [pressLabel setUserInteractionEnabled:YES];
+    [pressLabel addGestureRecognizer:tapPressLabel];
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc]
                                                     initWithTarget:self
                                                     action:@selector(handlePan:)];
@@ -84,10 +91,9 @@ ItemViewDelegate
 }
 
 - (void) initUI {
-    [self.view setBackgroundColor:HexColor(0x646464)];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.8];
     
-    
-    itemArray = @[@"所谓气",@"气压",@"气压与情绪",@"气压与天气",@"气压与死亡率",@"设置"];
+    itemArray = @[@"所谓气",@"气压",@"气压与情绪",@"气压与天气",@"气压与健康",@"设置"];
     item = [[ItemView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH * 0.618, SCREEN_HEIGHT) itemArray:itemArray itemHeight:50];
     item.delegate = self;
     [self.view addSubview:item];
@@ -171,6 +177,21 @@ ItemViewDelegate
     }
     [self refreshTips];
 }
+
+- (void) setUnitForPress {
+    PressureUnitVC *vc = [[PressureUnitVC alloc] init];
+    vc.delegate = self;
+    [UIView animateWithDuration:0.2 animations:^{
+        bgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }];
+    lastPointX = bgView.frame.origin.x;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void) unit:(NSString *)unit {
+    pressLabel.text = unit;
+}
+
 
 - (void) refreshTips {
     int rand = arc4random()%70;
