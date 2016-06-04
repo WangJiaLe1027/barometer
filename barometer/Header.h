@@ -21,7 +21,7 @@
 
 #define QQAppKey @""
 
-#define shareSDKAppKey @""
+#define shareSDKAppKey @"green"
 
 #define PRE_IOS_8 ([UIDevice currentSystemVersion] < 8.0)//小于ios8.0的版本
 #define ONE_PIXEL ([[UIScreen mainScreen] scale] > 0.0 ? 1.0 / [[UIScreen mainScreen] scale] : 1.0)
