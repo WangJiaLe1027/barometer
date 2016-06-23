@@ -3,6 +3,7 @@ pod 'UMengAnalytics', '~> 3.6'
 pod 'SVProgressHUD', '~> 2.0'
 #pod 'IGLDropDownMenu', '~> 1.5'
 pod 'YYModel', '~> 1.0'
+pod 'iOS-UMengMessage'
 
 # 主模块(必须)
 pod 'ShareSDK3'

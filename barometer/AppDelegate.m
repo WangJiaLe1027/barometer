@@ -8,6 +8,7 @@
 
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
+#import <UMessage.h>
 
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
@@ -29,7 +30,31 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [UMessage startWithAppkey:umengAppkey launchOptions:launchOptions];
+    
+    UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+    action1.identifier = @"action1_identifier";
+    action1.title=@"Accept";
+    action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+    
+    UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+    action2.identifier = @"action2_identifier";
+    action2.title=@"Reject";
+    action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+    action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+    action2.destructive = YES;
+    
+    UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+           categorys.identifier = @"category1";//这组动作的唯一标示
+          [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+             
+    UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:[NSSet setWithObject:categorys]];
+    
+    [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+    
+    [UMessage setLogEnabled:YES];
+
     
     [MobClick startWithAppkey:umengAppkey reportPolicy:BATCH   channelId:@"Web"];
     
@@ -80,6 +105,17 @@
     
     return YES;
 }
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [UMessage registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [UMessage didReceiveRemoteNotification:userInfo];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

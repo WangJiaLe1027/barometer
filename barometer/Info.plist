@@ -45,14 +45,13 @@
 		<string>mqqapi</string>
 		<string>weixin</string>
 		<string>wechat</string>
-    <string>mqqopensdkapiV2</string>
-        <string>mqqOpensdkSSologin</string>
-        <string>mqq</string>
-        <string>mqzoneopensdkapiV2</string>
-        <string>mqzoneopensdkapi19</string>
-        <string>mqzoneioensdkapi</string>
-        <string>mqzone</string>
-        
+		<string>mqqopensdkapiV2</string>
+		<string>mqqOpensdkSSologin</string>
+		<string>mqq</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneioensdkapi</string>
+		<string>mqzone</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
